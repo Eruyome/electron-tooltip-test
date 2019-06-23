@@ -1,0 +1,22 @@
+html {
+	color: #FEFEFE;
+}
+
+body {	
+	/*
+	background-color: rgba(00, 00, 00, 0.9);
+	*/
+	margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+	margin: 0;
+}
+
+#wrapper {
+	padding: 5px 10px;
+	border: 2px solid rgba(101, 64, 37, 0.9);
+
+	max-width: 400px;
+	height: 400px;
+}
