@@ -4,7 +4,7 @@ const path = require('path')
 const { ipcMain } = require('electron')
 let tooltipData = process.argv[2]
 
-console.log(tooltipData)
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -30,7 +30,7 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  mainWindow.loadURL(`file://${__dirname}/index.html`)
   mainWindow.hide()
 
   // Open the DevTools.
