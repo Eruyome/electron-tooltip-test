@@ -4,9 +4,9 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron . arg1",
+    "start": ".\\node_modules\\electron\\dist\\electron.exe . dev",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "node prebuild.js && yarn build"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -41,5 +41,8 @@
       "!**/{appveyor.yml,.travis.yml,circle.yml}",
       "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
     ]
+  },
+  "dependencies": {
+    "rimraf": "^2.6.3"
   }
 }

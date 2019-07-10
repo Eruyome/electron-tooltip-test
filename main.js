@@ -1,16 +1,28 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+const fs = require('fs')
 const { ipcMain } = require('electron')
-let tooltipData = process.argv[2]
+const { dialog } = require('electron')
 
-
+let isDevBuild = process.argv[2] === 'dev'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createWindow () {
+  let filePath = isDevBuild ? `${__dirname}\\index.html` : `${app.getPath("temp")}\\PoE-TradeMacro\\index.html`
+  
+  if (!fs.existsSync(filePath)) {
+    console.log("\nFile does not exist or path is empty: " + filePath + "\n")
+
+    filePath = dialog.showOpenDialog({ title: "Select index.html", defaultPath: filePath, properties: ['openFile'], filters: [{ name: 'HTML', extensions: ['html']}] })
+    console.log("File selected: " + filePath)
+  } else {
+    console.log(filePath)  
+  }
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
@@ -30,7 +42,7 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadURL(`file://${__dirname}/index.html`)
+  mainWindow.loadURL(`file://${filePath}`)
   mainWindow.hide()
 
   // Open the DevTools.
