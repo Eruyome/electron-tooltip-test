@@ -1,3 +1,7 @@
+# Use
+
+Prototype for an electron app that can be called by external scripts (like Autohotkey) to display a local website with varying data and act as a styled and transparent tooltip window.
+
 # electron-quick-start
 
 **Clone and run for a quick way to see Electron in action.**
