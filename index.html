@@ -11,8 +11,18 @@
 		Chromium <span id="chrome-version"></span>,
 		and Electron <span id="electron-version"></span>.
 		
-		<p>Arguments <script>document.write(require('electron').remote.process.argv[2])</script>
+		<p></p>
 	</div>
-    <script src="./renderer.js"></script>
+    <!-- <script src="./renderer.js"></script> -->
+    <script type="text/javascript">
+    	try {
+	    	const { ipcRenderer } = require('electron')
+
+			var wrapperWidth = document.getElementById('wrapper').offsetWidth;
+			var wrapperHeight = document.getElementById('wrapper').offsetHeight;
+			var sizeArr = [wrapperWidth, wrapperHeight];
+			ipcRenderer.send('set-window-size', sizeArr)
+		} catch (e) {console.log(e)}
+    </script>
   </body>
 </html>

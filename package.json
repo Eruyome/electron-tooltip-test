@@ -1,22 +1,16 @@
 {
-  "name": "electron-quick-start",
+  "name": "html-tooltip",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "PoE-TradeMacro HTML Tooltip",
   "main": "main.js",
   "scripts": {
     "start": ".\\node_modules\\electron\\dist\\electron.exe . dev",
     "pack": "electron-builder --dir",
     "dist": "node prebuild.js && yarn build"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
+  "repository": "https://github.com/Eruyome/electron-tooltip-test",
+  "keywords": [],
+  "author": "Eruyome",
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^5.0.4",
@@ -24,6 +18,7 @@
   },
   "build": {
     "appId": "com.electron.custom-tooltip",
+	"artifactName": "html-tooltip.${ext}",
     "win": {
       "target": "portable"
     },
